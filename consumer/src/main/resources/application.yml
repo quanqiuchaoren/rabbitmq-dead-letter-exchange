@@ -1,0 +1,10 @@
+spring:
+  rabbitmq:
+    host: 122.9.140.213 #主机ip
+    port: 5672 #端口
+    username: guest
+    password: guest
+    virtual-host: /
+    listener:
+      simple:
+        acknowledge-mode: manual

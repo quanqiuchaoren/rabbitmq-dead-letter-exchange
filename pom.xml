@@ -20,6 +20,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>producer</module>
+        <module>consumer</module>
     </modules>
     <!-- 1. 父工程依赖：父工程设置为springboot，则当前工程就是springboot工程 -->
     <parent>
