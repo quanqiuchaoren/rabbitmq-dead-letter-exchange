@@ -44,8 +44,16 @@ public class ProducerTest {
     @Test
     public void send_ttl_message_to_max_length_queue() throws InterruptedException {
         for (int i = 0; i < 7; i++) {
-            rabbitTemplate.convertAndSend("", RabbitMQConfig.MAX_LENGTH_QUEUE, "hello, ttl queue: " + i);
+            rabbitTemplate.convertAndSend("", RabbitMQConfig.MAX_LENGTH_QUEUE, "hello, max length queue: " + i);
             TimeUnit.SECONDS.sleep(5);
         }
+    }
+
+    /**
+     * 消费者使用nack方法拒收消息，且不进行requeue，则消息成为死信
+     */
+    @Test
+    public void consumer_nack_message() throws InterruptedException {
+            rabbitTemplate.convertAndSend("", RabbitMQConfig.NACK_QUEUE, "hello, consumer nack message");
     }
 }
