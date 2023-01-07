@@ -53,7 +53,7 @@ public class ProducerTest {
      * 消费者使用nack方法拒收消息，且不进行requeue，则消息成为死信
      */
     @Test
-    public void consumer_nack_message() throws InterruptedException {
+    public void consumer_nack_message() {
             rabbitTemplate.convertAndSend("", RabbitMQConfig.NACK_QUEUE, "hello, consumer nack message");
     }
 }
